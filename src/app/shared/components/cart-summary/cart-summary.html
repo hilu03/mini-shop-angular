@@ -1,0 +1,31 @@
+<div class="bg-[#2A2D31] rounded-xl p-6 text-white shadow-lg">
+  <h3 class="text-xl font-semibold mb-4">Order Summary</h3>
+
+  <div class="flex justify-between mb-2 text-gray-300">
+    <span>Subtotal</span>
+    <span>${{ subtotal().toFixed(2) }}</span>
+  </div>
+
+  <div class="flex justify-between mb-2 text-gray-300">
+    <span>Discount</span>
+    <span>-${{ discount().toFixed(2) }}</span>
+  </div>
+
+  <div class="flex justify-between mb-4 text-gray-300">
+    <span>Shipping Fee</span>
+    <span>${{ shippingFee().toFixed(2) }}</span>
+  </div>
+
+  <hr class="border-gray-600 mb-4" />
+
+  <div class="flex justify-between text-lg font-semibold mb-6">
+    <span>Total</span>
+    <span>${{ total.toFixed(2) }}</span>
+  </div>
+
+  <button
+    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition"
+  >
+    Proceed to Checkout
+  </button>
+</div>

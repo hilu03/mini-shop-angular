@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 import { Home } from './features/home/home';
 import { Cart } from './features/cart/cart';
-import { NotFound } from './not-found/not-found';
+import { NotFound } from './features/not-found/not-found';
 import { MainLayout } from './shared/layouts/main-layout/main-layout';
 import { EmptyLayout } from './shared/layouts/empty-layout/empty-layout';
+import { Login } from './features/login/login';
 
 export const routes: Routes = [
   {
@@ -11,8 +12,6 @@ export const routes: Routes = [
     component: MainLayout,
     children: [
       { path: '', component: Home },
-      // thêm các route khác ở đây, ví dụ:
-      // { path: 'products', component: ProductListComponent },
       { path: 'cart', component: Cart },
     ],
   },
@@ -20,6 +19,7 @@ export const routes: Routes = [
     path: '',
     component: EmptyLayout,
     children: [
+      { path: 'login', component: Login },
       { path: '**', component: NotFound },
     ],
   },

@@ -1,0 +1,30 @@
+<div class="flex items-center justify-between bg-[var(--primary-color)] p-4 rounded-lg shadow-md mb-3">
+    <div class="flex items-center gap-4">
+        <img [src]="cartItem().product.image" alt="{{ cartItem().product.name }}"
+            class="w-16 h-16 object-cover rounded-md" />
+        <div>
+            <h3 class="text-white font-medium">{{ cartItem().product.name }}</h3>
+            <p class="text-gray-400">${{ cartItem().product.price }}</p>
+        </div>
+    </div>
+
+    <div class="flex items-center gap-4">
+        <div class="flex items-center bg-[#3A3D41] rounded-md px-2">
+            <button mat-icon-button class="text-gray-300 hover:text-blue-400">
+                <mat-icon>remove</mat-icon>
+            </button>
+            <span class="mx-2 text-white">{{ cartItem().quantity }}</span>
+            <button mat-icon-button class="text-gray-300 hover:text-blue-400">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+
+        <div class="w-24 text-right text-white font-semibold">
+            ${{ (cartItem().product.price * cartItem().quantity).toFixed(2) }}
+        </div>
+
+        <button mat-icon-button class="text-red-400 hover:text-red-500">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</div>
