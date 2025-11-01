@@ -1,0 +1,30 @@
+<nav class="bg-[var(--primary-color)] text-white flex items-center justify-between px-6 py-3 shadow-md">
+  <!-- Logo -->
+  <a routerLink="/" class="text-xl font-semibold">MiniShop</a>
+
+  <!-- Search bar -->
+  <div class="flex items-center flex-1 justify-center">
+    <div class="w-1/2 flex items-center bg-[#3A3D41] rounded-lg overflow-hidden">
+      <input type="text" placeholder="Search products..."
+        class="w-full px-4 py-2 bg-transparent text-white placeholder-gray-400 focus:outline-none" />
+      <button class="px-3 hover:bg-[#4A4D51] transition-colors flex justify-center">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Right icons -->
+  <div class="flex items-center gap-4">
+    <!-- Cart -->
+    <a routerLink="/cart" class="relative hover:text-blue-400 transition-colors">
+      <mat-icon class="text-2xl">shopping_cart</mat-icon>
+      <span class="absolute -top-1 -right-2 bg-red-500 text-xs rounded-full px-1">0</span>
+    </a>
+
+    <!-- Profile -->
+    <button class="flex items-center gap-2 hover:text-blue-400 transition-colors">
+      <mat-icon class="text-2xl text-white">account_circle</mat-icon>
+      <span class="text-sm font-medium">User</span>
+    </button>
+  </div>
+</nav>
