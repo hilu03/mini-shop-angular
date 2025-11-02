@@ -10,11 +10,13 @@
 
     <div class="flex items-center gap-4">
         <div class="flex items-center bg-[#3A3D41] rounded-md px-2">
-            <button mat-icon-button class="text-gray-300 hover:text-blue-400">
+            <button mat-icon-button class="text-gray-300 hover:text-blue-400"
+                (click)="cartService.updateItemQuantity(cartItem().product.id, cartItem().quantity - 1)">
                 <mat-icon>remove</mat-icon>
             </button>
             <span class="mx-2 text-white">{{ cartItem().quantity }}</span>
-            <button mat-icon-button class="text-gray-300 hover:text-blue-400">
+            <button mat-icon-button class="text-gray-300 hover:text-blue-400"
+                (click)="cartService.updateItemQuantity(cartItem().product.id, cartItem().quantity + 1)">
                 <mat-icon>add</mat-icon>
             </button>
         </div>
@@ -23,7 +25,8 @@
             ${{ (cartItem().product.price * cartItem().quantity).toFixed(2) }}
         </div>
 
-        <button mat-icon-button class="text-red-400 hover:text-red-500">
+        <button mat-icon-button class="text-red-400 hover:text-red-500"
+            (click)="cartService.removeItem(cartItem().product.id)">
             <mat-icon>delete</mat-icon>
         </button>
     </div>

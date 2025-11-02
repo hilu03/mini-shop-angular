@@ -3,15 +3,20 @@
   <div class="lg:col-span-2 bg-[var(--secondary-color)] rounded-xl p-6 shadow-md">
     <h2 class="text-2xl font-bold text-white mb-4">Your Cart</h2>
 
-    @for (item of cartItems; track item.product.id) {
-      <app-cart-item [cartItem]="item"></app-cart-item>
+    @if (cartItems().length === 0) {
+    <p class="text-gray-400 text-center">Your cart is empty.</p>
+    } @else {
+    <p class="text-gray-400 mb-6">You have {{ cartItems().length }} items in your cart.</p>
+    }
+    @for (item of cartItems(); track item.product.id) {
+    <app-cart-item [cartItem]="item"></app-cart-item>
     }
   </div>
 
   <!-- Right: Cart summary -->
-  <app-cart-summary
-    [subtotal]="subtotal"
-    [discount]="discount"
-    [shippingFee]="shippingFee"
-  ></app-cart-summary>
+  @if (cartItems().length !== 0) {
+  <app-cart-summary [subtotal]="subtotal" [discount]="discount" [shippingFee]="shippingFee">
+  </app-cart-summary>
+  }
+
 </div>

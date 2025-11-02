@@ -1,6 +1,7 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { CartItem } from '../../../core/types';
 import { MatIcon } from '@angular/material/icon';
+import { CartService } from '../../../core/services/cart-service';
 
 @Component({
   selector: 'app-cart-item',
@@ -10,4 +11,5 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class CartItemComponent {
   cartItem = input.required<CartItem>();
+  cartService = inject(CartService);
 }

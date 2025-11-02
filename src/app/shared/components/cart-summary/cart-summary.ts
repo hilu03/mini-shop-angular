@@ -7,6 +7,9 @@ import { Component, input } from '@angular/core';
   styleUrl: './cart-summary.scss',
 })
 export class CartSummary {
+  onCheckout() {
+    alert('Checkout functionality is not implemented yet.');
+  }
   readonly subtotal = input.required<number>();
   readonly discount = input<number>(0);
   readonly shippingFee = input<number>(0);
