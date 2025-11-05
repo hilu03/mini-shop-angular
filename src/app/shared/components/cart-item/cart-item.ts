@@ -1,7 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { CartItem } from '../../../core/types';
 import { MatIcon } from '@angular/material/icon';
-import { CartService } from '../../../core/services/cart-service';
+import { CartService } from '../../../core/services/cart/cart-service';
 
 @Component({
   selector: 'app-cart-item',

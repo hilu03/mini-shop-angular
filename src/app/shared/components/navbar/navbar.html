@@ -1,6 +1,6 @@
 <nav class="bg-[var(--primary-color)] text-white flex items-center justify-between px-6 py-3 shadow-md">
   <!-- Logo -->
-  <a routerLink="/" class="text-xl font-semibold">MiniShop</a>
+  <a routerLink="/" class="text-xl font-semibold hover:text-blue-400">MiniShop</a>
 
   <!-- Search bar -->
   <div class="flex items-center flex-1 justify-center">
@@ -20,11 +20,31 @@
       <mat-icon class="text-2xl">shopping_cart</mat-icon>
       <span class="absolute -top-1 -right-2 bg-red-500 text-xs rounded-full px-1">{{cartItemQuantity()}}</span>
     </a>
-
+    @if (isLoggedIn()) {
     <!-- Profile -->
-    <button class="flex items-center gap-2 hover:text-blue-400 transition-colors">
-      <mat-icon class="text-2xl text-white">account_circle</mat-icon>
-      <span class="text-sm font-medium">User</span>
-    </button>
+    <div class="relative">
+      <button class="flex items-center hover:text-blue-400 transition-colors" (click)="toggleMenu()">
+        <mat-icon class="text-2xl text-white">account_circle</mat-icon>
+        <mat-icon class="text-white text-sm">expand_more</mat-icon>
+      </button>
+
+      @if (open()) {
+      <div class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black/10 z-50">
+        <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+          My orders
+        </button>
+        <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+          Profile
+        </button>
+        <button class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100" (click)="onLogout()">
+          Log out
+        </button>
+      </div>
+      }
+    </div>
+    }
+    @else {
+    <a routerLink="/login" class="text-white py-2 px-4 underline font-bold hover:text-blue-400">Log in</a>
+    }
   </div>
 </nav>

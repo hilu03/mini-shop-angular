@@ -1,1 +1,61 @@
-<p>login works!</p>
+<div class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+  <div class="w-full max-w-md bg-white rounded-xl shadow-md p-6">
+    <h1 class="text-2xl font-semibold text-gray-900 text-center mb-4">
+      Welcome to
+      <a routerLink="/" class=" hover:text-blue-600 font-medium cursor-pointer underline">MiniShop</a>
+    </h1>
+    <p class="text-sm text-gray-500 text-center mb-6">
+      Sign in to access your cart and orders.
+    </p>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" class="space-y-4">
+      <!-- Email -->
+      <mat-form-field class="w-full">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="you@example.com" formControlName="email" id="email" class="border w-full p-4" />
+        @if (form.get('email')?.hasError('required')) {
+        <mat-error>Email is required!</mat-error>
+        }
+        @if (form.get('email')?.hasError('email')) {
+        <mat-error>Invalid email address!</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Password -->
+      <mat-form-field class="w-full">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="••••••" formControlName="password" id="password"
+          class="border w-full p-4" />
+        @if (form.get('password')?.hasError('required')) {
+        <mat-error>Password is required!</mat-error>
+        }
+        @if (form.get('password')?.hasError('minlength')) {
+        <mat-error>Password must be at least 6 characters</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Error -->
+      @if (error) {
+      <div class="text-sm text-red-500">{{ error }}</div>
+      }
+
+      <!-- Submit -->
+      <button mat-flat-button
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition"
+        [disabled]="loading" type="submit">
+        @if (loading) {
+        <mat-progress-spinner mode="indeterminate" diameter="25" class="mx-auto"></mat-progress-spinner>
+        }
+        @else {
+        <span>Sign in</span>
+        }
+
+      </button>
+    </form>
+
+    <div class="text-center text-sm text-gray-500 mt-4">
+      Don't have an account?
+      <a routerLink="/register" class="text-blue-600 hover:underline font-medium">Register</a>
+    </div>
+  </div>
+</div>
